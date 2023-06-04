@@ -9,11 +9,12 @@ export default function Header() {
 				<h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight">ProjectNeumann</h1>
 			</Link>
 			<HeaderButtonContainer className="gap-5">
-				<Link href="/register" passHref>
+				<Link href="/register">
 					<HeaderButton>Register</HeaderButton>
 				</Link>
-
-				<HeaderButton>Sign-in</HeaderButton>
+				<Link href="/login">
+					<HeaderButton>Sign-in</HeaderButton>
+				</Link>
 			</HeaderButtonContainer>
 		</header>
 	);

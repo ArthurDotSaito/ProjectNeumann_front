@@ -10,7 +10,7 @@ export const HeaderButtonContainer = w.section(
     `,
 );
 
-export const HeaderButton = w.a(
+export const HeaderButton = w.button(
 	`
         flex 
         max-w-fit 
