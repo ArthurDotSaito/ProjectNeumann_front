@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { HeaderButton, HeaderButtonContainer } from '@/styles/headerStyle';
 
 export default function Header() {
 	return (
@@ -7,12 +8,13 @@ export default function Header() {
 			<Link href="/" className="flex space-x-2">
 				<h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight">ProjectNeumann</h1>
 			</Link>
-			<a
-				className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-blue-600 text-white px-5 py-2 text-sm shadow-md hover:bg-blue-500 bg-blue-600 font-medium transition"
-				href="https://github.com/Nutlope/roomGPT"
-				target="_blank"
-				rel="noopener noreferrer"
-			></a>
+			<HeaderButtonContainer className="gap-5">
+				<Link href="/register" passHref>
+					<HeaderButton>Register</HeaderButton>
+				</Link>
+
+				<HeaderButton>Sign-in</HeaderButton>
+			</HeaderButtonContainer>
 		</header>
 	);
 }
