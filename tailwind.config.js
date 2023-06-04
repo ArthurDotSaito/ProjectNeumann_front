@@ -10,6 +10,9 @@ module.exports = {
       zIndex: {
         '-2': '-2',
       },
+      screens: {
+        xs: "450px",
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
