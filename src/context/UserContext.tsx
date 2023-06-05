@@ -11,7 +11,7 @@ type UserContextType = {
 	setUserData: (data: UserData | null) => void;
 };
 
-const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext<UserContextType>({ userData: null, setUserData: () => {} });
 export default UserContext;
 
 type UserProviderProps = {

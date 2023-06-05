@@ -2,19 +2,22 @@ import Header from '@/components/Header/Header';
 import { toast, ToastContainer } from 'react-toastify';
 import { Row, Label } from '@/components/Form';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import useLogin from '@/hooks/api/useLogin';
 import { BlueSpray } from '@/styles/indexStyle';
+import UserContext from '@/context/UserContext';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const { signInLoading, signIn } = useLogin();
+	const { setUserData } = useContext(UserContext);
 
 	async function submit(event: React.FormEvent) {
 		event.preventDefault();
 		try {
-			await signIn(email, password);
+			const userData = await signIn(email, password);
+			setUserData(userData);
 			toast('Login realizado com Sucesso!');
 		} catch (error) {
 			toast('E-mail e/ou senha incorretos!');
