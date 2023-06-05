@@ -1,11 +1,12 @@
 import Header from '@/components/Header/Header';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { Row, Label } from '@/components/Form';
 import Link from 'next/link';
 import { useState } from 'react';
 import useLogin from '@/hooks/api/useLogin';
+import { BlueSpray } from '@/styles/indexStyle';
 
-export default function Register() {
+export default function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const { signInLoading, signIn } = useLogin();
@@ -22,6 +23,7 @@ export default function Register() {
 
 	return (
 		<div className="flex max-w-6xl mx-auto flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
+			<BlueSpray></BlueSpray>
 			<Header></Header>
 			<Row>
 				<Label>Sign In</Label>

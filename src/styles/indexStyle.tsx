@@ -1,6 +1,6 @@
 import { w } from 'windstitch';
 
-export const HomepageContainer = w.main(
+export const BlueSpray = w.main(
 	`
     flex 
     flex-1 

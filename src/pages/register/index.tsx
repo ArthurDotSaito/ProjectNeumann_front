@@ -5,6 +5,7 @@ import { useState } from 'react';
 import useRegistration from '@/hooks/api/useRegistration';
 import { Row, Label } from '@/components/Form';
 import Link from 'next/link';
+import { BlueSpray } from '@/styles/indexStyle';
 
 export default function Register() {
 	const [email, setEmail] = useState('');
@@ -31,6 +32,7 @@ export default function Register() {
 
 	return (
 		<div className="flex max-w-6xl mx-auto flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
+			<BlueSpray></BlueSpray>
 			<Header></Header>
 			<Row>
 				<Label>Sign Up</Label>
