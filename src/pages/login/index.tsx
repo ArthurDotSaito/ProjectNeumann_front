@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useContext } from 'react';
 import useLogin from '@/hooks/api/useLogin';
-import { BlueSpray } from '@/styles/indexStyle';
 import UserContext from '@/context/UserContext';
 
 export default function Login() {
@@ -28,8 +27,7 @@ export default function Login() {
 	}
 
 	return (
-		<div className="flex max-w-6xl mx-auto flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
-			<BlueSpray></BlueSpray>
+		<div className="flex max-w-6xl flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
 			<Header></Header>
 			<Row>
 				<Label>Sign In</Label>
