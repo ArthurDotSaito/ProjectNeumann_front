@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { toast, ToastContainer } from 'react-toastify';
 
-import Header from '@/components/Header/Header';
+import Header from '@/components/Header';
 import { Row, Label } from '@/components/Form';
 import useLogin from '@/hooks/api/useLogin';
 import UserContext from '@/context/UserContext';

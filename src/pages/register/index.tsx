@@ -5,7 +5,8 @@ import { toast } from 'react-toastify';
 
 import { Row, Label } from '@/components/Form';
 import useRegistration from '@/hooks/api/useRegistration';
-import Header from '@/components/Header/Header';
+import Header from '@/components/Header';
+import { RegisterPageContainer } from '@/styles/pages_styles/registerPageStyle';
 
 export default function Register() {
 	const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ export default function Register() {
 	}
 
 	return (
-		<div className="flex max-w-6xl flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
+		<RegisterPageContainer>
 			<Header></Header>
 			<Row>
 				<Label>Sign Up</Label>
@@ -84,6 +85,6 @@ export default function Register() {
 			<Row>
 				<Link href="/login">Already registered? Click here</Link>
 			</Row>
-		</div>
+		</RegisterPageContainer>
 	);
 }

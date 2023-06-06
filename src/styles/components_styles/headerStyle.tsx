@@ -40,12 +40,14 @@ export const HeaderButton = w.button(
         rounded
         border-blue-600 
         text-white 
-        px-5
-        py-2 
-        text-sm 
+        px-14
+        py-2
+        text-lg 
         shadow-md 
         hover:bg-blue-500
-        bg-blue-600  
+        bg-blue-600
         font-medium transition
+        sm: text-base
+        md: text-lg
     `,
 );

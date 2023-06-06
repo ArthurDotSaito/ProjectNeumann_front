@@ -4,15 +4,15 @@ import { HeaderButton, HeaderButtonContainer, HeaderContainer } from '@/styles/c
 
 export default function Header() {
 	return (
-		<HeaderContainer>
+		<HeaderContainer className="flex flex-col xs:flex-row ">
 			<Link href="/" className="flex space-x-2">
 				<h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight">ProjectNeumann</h1>
 			</Link>
 			<HeaderButtonContainer className="gap-5">
-				<Link href="/register">
+				<Link href="/register" className="max-w-fit ">
 					<HeaderButton>Register</HeaderButton>
 				</Link>
-				<Link href="/login">
+				<Link href="/login" className="max-w-fit ">
 					<HeaderButton>Sign-in</HeaderButton>
 				</Link>
 			</HeaderButtonContainer>
