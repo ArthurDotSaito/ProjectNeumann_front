@@ -1,10 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { HeaderButton, HeaderButtonContainer } from '@/styles/headerStyle';
+
+import { HeaderButton, HeaderButtonContainer, HeaderContainer } from '@/styles/components_styles/headerStyle';
 
 export default function Header() {
 	return (
-		<header className="flex flex-col xs:flex-row justify-between items-center w-full mt-3 border-b pb-7 sm:px-4 px-2 border-gray-500 gap-2">
+		<HeaderContainer>
 			<Link href="/" className="flex space-x-2">
 				<h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight">ProjectNeumann</h1>
 			</Link>
@@ -16,6 +16,6 @@ export default function Header() {
 					<HeaderButton>Sign-in</HeaderButton>
 				</Link>
 			</HeaderButtonContainer>
-		</header>
+		</HeaderContainer>
 	);
 }

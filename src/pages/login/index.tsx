@@ -1,11 +1,13 @@
-import Header from '@/components/Header/Header';
-import { toast, ToastContainer } from 'react-toastify';
-import { Row, Label } from '@/components/Form';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useState, useContext } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { toast, ToastContainer } from 'react-toastify';
+
+import Header from '@/components/Header/Header';
+import { Row, Label } from '@/components/Form';
 import useLogin from '@/hooks/api/useLogin';
 import UserContext from '@/context/UserContext';
+import { LoginPageContainer } from '@/styles/pages_styles/loginPageStyle';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
@@ -27,7 +29,7 @@ export default function Login() {
 	}
 
 	return (
-		<div className="flex max-w-6xl flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
+		<LoginPageContainer>
 			<Header></Header>
 			<Row>
 				<Label>Sign In</Label>
@@ -64,6 +66,6 @@ export default function Login() {
 			<Row>
 				<Link href="/register">Don't have an account? Click here</Link>
 			</Row>
-		</div>
+		</LoginPageContainer>
 	);
 }

@@ -1,10 +1,11 @@
-import Header from '@/components/Header/Header';
-import { toast } from 'react-toastify';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
-import useRegistration from '@/hooks/api/useRegistration';
-import { Row, Label } from '@/components/Form';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
+
+import { Row, Label } from '@/components/Form';
+import useRegistration from '@/hooks/api/useRegistration';
+import Header from '@/components/Header/Header';
 
 export default function Register() {
 	const [email, setEmail] = useState('');

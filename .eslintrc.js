@@ -15,7 +15,7 @@ module.exports = {
 		indent: ['error', 'tab'],
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
-		'import/order': 'warn',
+		'import/order': ["warn", { "newlines-between": "always" }],
 		'linebreak-style': ['error', 'unix'],
 		'import/no-named-as-default-member': 'off',
 		'@typescript-eslint/no-namespace': 'off',
