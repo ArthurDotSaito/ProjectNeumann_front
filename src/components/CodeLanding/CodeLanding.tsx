@@ -2,6 +2,7 @@ import { useState } from 'react';
 import CodeEditor from '../CodeEditor';
 
 import { languageOptions } from '@/constants/languageOptions';
+import { CodeLandingContainer } from '@/styles/components_styles/codeLandingStyle';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -22,7 +23,9 @@ export default function CodeLanding() {
 
 	return (
 		<>
-			<CodeEditor code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
+			<CodeLandingContainer>
+				<CodeEditor code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
+			</CodeLandingContainer>
 		</>
 	);
 }
