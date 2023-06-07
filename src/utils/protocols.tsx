@@ -4,3 +4,10 @@ type CodeEditorProps = {
 	code?: string;
 	theme?: string;
 };
+
+type SelectedOption = {
+	id: number;
+	name: string;
+	label: string;
+	value: string;
+};

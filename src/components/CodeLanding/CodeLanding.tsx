@@ -21,6 +21,11 @@ export default function CodeLanding() {
 		}
 	}
 
+	function onSelectChange(selectedOption: SelectedOption) {
+		console.log(selectedOption);
+		setLanguage(selectedOption);
+	}
+
 	return (
 		<>
 			<CodeLandingContainer>
