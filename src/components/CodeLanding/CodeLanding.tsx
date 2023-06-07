@@ -1,14 +1,8 @@
 import { useState } from 'react';
 import CodeEditor from '../CodeEditor';
 
-export const languageOptions = [
-	{
-		id: 63,
-		name: 'JavaScript (Node.js 12.14.0)',
-		label: 'JavaScript (Node.js 12.14.0)',
-		value: 'javascript',
-	},
-];
+import { languageOptions } from '@/constants/languageOptions';
+
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
 	const [theme, setTheme] = useState('cobalt');
