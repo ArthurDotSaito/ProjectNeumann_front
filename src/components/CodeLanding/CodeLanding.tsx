@@ -31,7 +31,7 @@ export default function CodeLanding() {
 		<>
 			<CodeLandingContainer>
 				<section className="flex flex row">
-					<LanguagesDropdown></LanguagesDropdown>
+					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
 				</section>
 				<CodeEditor code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
 			</CodeLandingContainer>
