@@ -4,6 +4,7 @@ import CodeEditor from '../CodeEditor';
 import { languageOptions } from '@/constants/languageOptions';
 import { CodeLandingContainer } from '@/styles/components_styles/codeLandingStyle';
 import LanguagesDropdown from './LanguagesDropdown';
+import ThemeDropdown from './ThemeDropdown';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -32,6 +33,7 @@ export default function CodeLanding() {
 			<CodeLandingContainer>
 				<section className="flex flex row">
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
+					<ThemeDropdown></ThemeDropdown>
 				</section>
 				<CodeEditor code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
 			</CodeLandingContainer>
