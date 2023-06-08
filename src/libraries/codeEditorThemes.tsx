@@ -9,7 +9,7 @@ export default function defineTheme(themeName: keyof typeof monacoThemes) {
 	});
 }
 
-const monacoThemes = {
+export const monacoThemes = {
 	active4d: 'Active4D',
 	'all-hallows-eve': 'All Hallows Eve',
 	amy: 'Amy',

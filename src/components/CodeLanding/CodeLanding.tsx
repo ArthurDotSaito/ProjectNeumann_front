@@ -5,6 +5,8 @@ import { languageOptions } from '@/constants/languageOptions';
 import { CodeLandingContainer } from '@/styles/components_styles/codeLandingStyle';
 import LanguagesDropdown from './LanguagesDropdown';
 import ThemeDropdown from './ThemeDropdown';
+import defineTheme from '@/libraries/codeEditorThemes';
+import { SelectedOption } from '@/utils/protocols';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -28,12 +30,20 @@ export default function CodeLanding() {
 		setLanguage(selectedOption);
 	}
 
+	function changeTheme(selectedTheme: any) {
+		if (['light', 'vs-dark'].includes(selectedTheme.value)) {
+			setTheme(selectedTheme);
+		} else {
+			defineTheme(selectedTheme.values).then((e) => setTheme(selectedTheme));
+		}
+	}
+
 	return (
 		<>
 			<CodeLandingContainer>
 				<section className="flex flex row">
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
-					<ThemeDropdown></ThemeDropdown>
+					<ThemeDropdown theme={theme} changeTheme={changeTheme}></ThemeDropdown>
 				</section>
 				<CodeEditor code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
 			</CodeLandingContainer>
