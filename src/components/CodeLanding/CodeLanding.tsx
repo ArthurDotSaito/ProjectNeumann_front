@@ -10,7 +10,7 @@ import { SelectedOption } from '@/utils/protocols';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
-	const [theme, setTheme] = useState('cobalt');
+	const [theme, setTheme] = useState<{ value: string; label: string }>({ value: 'cobalt', label: 'Cobalt' });
 	const [language, setLanguage] = useState(languageOptions[0]);
 
 	function onChange(action: string, data: string): void {
@@ -32,6 +32,7 @@ export default function CodeLanding() {
 
 	function changeTheme(selectedTheme: any) {
 		if (['light', 'vs-dark'].includes(selectedTheme.value)) {
+			console.log(selectedTheme);
 			setTheme(selectedTheme);
 		} else {
 			defineTheme(selectedTheme.value).then((e) => setTheme(selectedTheme));
@@ -39,7 +40,7 @@ export default function CodeLanding() {
 	}
 
 	useEffect(() => {
-		defineTheme('oceanic-next').then((_) => setTheme('oceanic-next'));
+		defineTheme('oceanic-next').then((_) => setTheme({ value: 'oceanic-next', label: 'Oceanic Next' }));
 	}, []);
 
 	return (
@@ -49,7 +50,7 @@ export default function CodeLanding() {
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
 					<ThemeDropdown theme={theme} changeTheme={changeTheme}></ThemeDropdown>
 				</section>
-				<CodeEditor key={theme} code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
+				<CodeEditor code={code} theme={theme.value} language={language?.value} onChange={onChange}></CodeEditor>
 			</CodeLandingContainer>
 		</>
 	);

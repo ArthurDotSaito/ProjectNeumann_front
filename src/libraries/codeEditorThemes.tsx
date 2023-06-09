@@ -52,11 +52,11 @@ export const monacoThemes = {
 };
 
 export default function defineTheme(themeName: keyof typeof monacoThemes) {
-	return new Promise<void>((res) => {
+	return new Promise<void>((resolve) => {
 		Promise.all([loader.init(), import(`../../node_modules/monaco-themes/themes/${monacoThemes[themeName]}.json`)]).then(
 			([monaco, themeData]) => {
 				monaco.editor.defineTheme(themeName, themeData);
-				res();
+				resolve();
 			},
 		);
 	});
