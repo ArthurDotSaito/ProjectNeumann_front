@@ -55,7 +55,7 @@ export default function CodeLanding() {
 					<section className="flex flex-row space-x-4 w-[70%] items-start px-4 py-4">
 						<CodeEditor code={code} theme={theme.value} language={language?.value} onChange={onChange}></CodeEditor>
 					</section>
-					<section className="flex flex-shrink-0 w-[30%] flex-row right-container">
+					<section className="flex flex-shrink-0 w-[30%] flex-col right-container">
 						<OutputTerminal></OutputTerminal>
 					</section>
 				</div>

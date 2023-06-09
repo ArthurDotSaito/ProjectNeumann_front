@@ -11,3 +11,7 @@
     transform: scale(1);
     pointer-events: none;
 }
+
+.TerminalWindow {
+  background-color: #062047 !important;
+}
