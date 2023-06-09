@@ -7,6 +7,7 @@ import LanguagesDropdown from './LanguagesDropdown';
 import ThemeDropdown from './ThemeDropdown';
 import defineTheme from '@/libraries/codeEditorThemes';
 import { SelectedOption } from '@/utils/protocols';
+import OutputTerminal from './OutputTerminal';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -50,7 +51,14 @@ export default function CodeLanding() {
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
 					<ThemeDropdown theme={theme} changeTheme={changeTheme}></ThemeDropdown>
 				</section>
-				<CodeEditor code={code} theme={theme.value} language={language?.value} onChange={onChange}></CodeEditor>
+				<div className="flex flex-row">
+					<section className="flex flex-row space-x-4 w-[70%] items-start px-4 py-4">
+						<CodeEditor code={code} theme={theme.value} language={language?.value} onChange={onChange}></CodeEditor>
+					</section>
+					<section className="flex flex-shrink-0 w-[30%] flex-row right-container">
+						<OutputTerminal></OutputTerminal>
+					</section>
+				</div>
 			</CodeLandingContainer>
 		</>
 	);
