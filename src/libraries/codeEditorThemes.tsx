@@ -1,14 +1,5 @@
 import { loader } from '@monaco-editor/react';
 
-export default function defineTheme(themeName: keyof typeof monacoThemes) {
-	return new Promise<void>((res) => {
-		Promise.all([loader.init(), import(`monaco-themes/themes/${monacoThemes[themeName]}.json`)]).then(([monaco, themeData]) => {
-			monaco.editor.defineTheme(themeName, themeData);
-			res();
-		});
-	});
-}
-
 export const monacoThemes = {
 	active4d: 'Active4D',
 	'all-hallows-eve': 'All Hallows Eve',
@@ -59,3 +50,14 @@ export const monacoThemes = {
 	krtheme: 'krTheme',
 	monoindustrial: 'monoindustrial',
 };
+
+export default function defineTheme(themeName: keyof typeof monacoThemes) {
+	return new Promise<void>((res) => {
+		Promise.all([loader.init(), import(`../../node_modules/monaco-themes/themes/${monacoThemes[themeName]}.json`)]).then(
+			([monaco, themeData]) => {
+				monaco.editor.defineTheme(themeName, themeData);
+				res();
+			},
+		);
+	});
+}

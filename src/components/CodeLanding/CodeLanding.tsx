@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CodeEditor from '../CodeEditor';
 
 import { languageOptions } from '@/constants/languageOptions';
@@ -34,9 +34,13 @@ export default function CodeLanding() {
 		if (['light', 'vs-dark'].includes(selectedTheme.value)) {
 			setTheme(selectedTheme);
 		} else {
-			defineTheme(selectedTheme.values).then((e) => setTheme(selectedTheme));
+			defineTheme(selectedTheme.value).then((e) => setTheme(selectedTheme));
 		}
 	}
+
+	useEffect(() => {
+		defineTheme('oceanic-next').then((_) => setTheme('oceanic-next'));
+	}, []);
 
 	return (
 		<>
@@ -45,7 +49,7 @@ export default function CodeLanding() {
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
 					<ThemeDropdown theme={theme} changeTheme={changeTheme}></ThemeDropdown>
 				</section>
-				<CodeEditor code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
+				<CodeEditor key={theme} code={code} theme={theme} language={language?.value} onChange={onChange}></CodeEditor>
 			</CodeLandingContainer>
 		</>
 	);

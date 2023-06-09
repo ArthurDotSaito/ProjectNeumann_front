@@ -2,7 +2,10 @@ import { CodeEditorContainer } from '@/styles/components_styles/codeEditorStyle'
 import { Editor } from '@monaco-editor/react';
 import { useState } from 'react';
 
+import { CodeEditorProps } from '@/utils/protocols';
+
 export default function CodeEditor({ code, theme, language, onChange }: CodeEditorProps) {
+	console.log(theme);
 	const [value, setValue] = useState(code || '');
 
 	function handleChangeCodeEditorvalue(value: string) {
