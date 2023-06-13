@@ -8,6 +8,16 @@ export async function submitCode(token: string) {
 		'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_API_KEY,
 	};
 
-	const { data } = await api.post('/submit', {}, { headers });
+	const params = {
+		base64_encoded: 'true',
+		fields: '*',
+	};
+
+	const options = {
+		headers,
+		params,
+	};
+
+	const { data } = await api.post('/submit', {}, options);
 	return data;
 }
