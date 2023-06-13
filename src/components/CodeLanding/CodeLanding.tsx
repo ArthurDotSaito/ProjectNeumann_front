@@ -13,6 +13,8 @@ export default function CodeLanding() {
 	const [code, setCode] = useState('');
 	const [theme, setTheme] = useState<{ value: string; label: string }>({ value: 'cobalt', label: 'Cobalt' });
 	const [language, setLanguage] = useState(languageOptions[0]);
+	const [isProcessing, setIsProcessing] = useState(false);
+	const [customInput, setCustomInput] = useState('');
 
 	function onChange(action: string, data: string): void {
 		switch (action) {
@@ -38,6 +40,15 @@ export default function CodeLanding() {
 		} else {
 			defineTheme(selectedTheme.value).then((e) => setTheme(selectedTheme));
 		}
+	}
+
+	function handleCodeCompile() {
+		setIsProcessing(true);
+		const codeDatatoCompile = {
+			language_id: language.id,
+			source_code: btoa(code),
+			stdin: btoa(customInput),
+		};
 	}
 
 	useEffect(() => {
