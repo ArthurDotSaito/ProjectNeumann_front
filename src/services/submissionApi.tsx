@@ -1,6 +1,7 @@
+import { SubmitCodeData } from '@/utils/protocols';
 import api from './api';
 
-export async function submitCode(token: string) {
+export async function submitCode(token: string, codeData: SubmitCodeData) {
 	const headers = {
 		Authorization: `Bearer ${token}`,
 		'Content-Type': 'application/json',
@@ -18,6 +19,6 @@ export async function submitCode(token: string) {
 		params,
 	};
 
-	const { data } = await api.post('/submit', {}, options);
+	const { data } = await api.post('/submit', codeData, options);
 	return data;
 }

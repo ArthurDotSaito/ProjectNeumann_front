@@ -16,7 +16,13 @@ export type SelectedOption = {
 
 type ThemeName = keyof typeof monacoThemes;
 
-export type SelectedTheme {
+export type SelectedTheme = {
 	value: ThemeName | 'light' | 'vs-dark';
 	values?: ThemeName;
+};
+
+export interface SubmitCodeData {
+	language_id: string;
+	source_code: string;
+	stdin: string;
 }
