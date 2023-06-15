@@ -2,7 +2,7 @@ import { submitCode } from '@/services/submissionApi';
 import useAsync from '../useAsync';
 import useToken from '../useToken';
 
-export default function createNewBooking() {
+export default function useSubmit() {
 	const token = useToken();
 
 	const {

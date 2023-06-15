@@ -8,6 +8,7 @@ import ThemeDropdown from './ThemeDropdown';
 import defineTheme from '@/libraries/codeEditorThemes';
 import { SelectedOption } from '@/utils/protocols';
 import OutputTerminal from './OutputTerminal';
+import useSubmit from '@/hooks/api/useSubmit';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -15,6 +16,7 @@ export default function CodeLanding() {
 	const [language, setLanguage] = useState(languageOptions[0]);
 	const [isProcessing, setIsProcessing] = useState(false);
 	const [customInput, setCustomInput] = useState('');
+	const { submitNewCode } = useSubmit();
 
 	function onChange(action: string, data: string): void {
 		switch (action) {
@@ -49,6 +51,9 @@ export default function CodeLanding() {
 			source_code: btoa(code),
 			stdin: btoa(customInput),
 		};
+		try{
+			await submitNewCode(codeDatatoCompile);
+		}
 	}
 
 	useEffect(() => {
