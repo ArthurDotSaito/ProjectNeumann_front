@@ -9,6 +9,7 @@ import defineTheme from '@/libraries/codeEditorThemes';
 import { SelectedOption } from '@/utils/protocols';
 import OutputTerminal from './OutputTerminal';
 import useSubmit from '@/hooks/api/useSubmit';
+import InputField from './InputField';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -79,6 +80,9 @@ export default function CodeLanding() {
 					</section>
 					<section className="flex flex-shrink-0 w-[27%] flex-col right-container">
 						<OutputTerminal outputDetails={outputDetails}></OutputTerminal>
+						<div className="flex flex-col items-end">
+							<InputField></InputField>
+						</div>
 					</section>
 				</div>
 			</CodeLandingContainer>
