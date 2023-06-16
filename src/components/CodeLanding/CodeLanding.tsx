@@ -16,6 +16,7 @@ export default function CodeLanding() {
 	const [language, setLanguage] = useState(languageOptions[0]);
 	const [isProcessing, setIsProcessing] = useState(false);
 	const [customInput, setCustomInput] = useState('');
+	const [outputDetails, setOutputDetails] = useState(null);
 	const { submitNewCode } = useSubmit();
 
 	function onChange(action: string, data: string): void {
@@ -44,15 +45,20 @@ export default function CodeLanding() {
 		}
 	}
 
-	function handleCodeCompile() {
+	async function handleCodeCompile() {
 		setIsProcessing(true);
 		const codeDatatoCompile = {
 			language_id: language.id,
 			source_code: btoa(code),
 			stdin: btoa(customInput),
 		};
-		try{
-			await submitNewCode(codeDatatoCompile);
+		try {
+			const compileResponse = await submitNewCode(codeDatatoCompile);
+			setOutputDetails(compileResponse);
+		} catch (error) {
+			alert(error);
+		} finally {
+			setIsProcessing(false);
 		}
 	}
 
@@ -72,7 +78,7 @@ export default function CodeLanding() {
 						<CodeEditor code={code} theme={theme.value} language={language?.value} onChange={onChange}></CodeEditor>
 					</section>
 					<section className="flex flex-shrink-0 w-[27%] flex-col right-container">
-						<OutputTerminal></OutputTerminal>
+						<OutputTerminal outputDetails={outputDetails}></OutputTerminal>
 					</section>
 				</div>
 			</CodeLandingContainer>
