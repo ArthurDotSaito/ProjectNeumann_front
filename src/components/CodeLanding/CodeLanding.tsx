@@ -33,8 +33,6 @@ export default function CodeLanding() {
 		}
 	}
 
-	console.log(code);
-
 	function onSelectChange(selectedOption: SelectedOption) {
 		console.log(selectedOption);
 		setLanguage(selectedOption);
