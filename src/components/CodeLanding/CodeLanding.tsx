@@ -10,6 +10,7 @@ import { SelectedOption } from '@/utils/protocols';
 import OutputTerminal from './OutputTerminal';
 import useSubmit from '@/hooks/api/useSubmit';
 import InputField from './InputField';
+import { classnames } from '@/utils/classNamesJoin';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -32,6 +33,8 @@ export default function CodeLanding() {
 		}
 	}
 
+	console.log(code);
+
 	function onSelectChange(selectedOption: SelectedOption) {
 		console.log(selectedOption);
 		setLanguage(selectedOption);
@@ -46,7 +49,7 @@ export default function CodeLanding() {
 		}
 	}
 
-	async function handleCodeCompile() {
+	const handleCodeCompile = async () => {
 		setIsProcessing(true);
 		const codeDatatoCompile = {
 			language_id: language.id,
@@ -61,7 +64,7 @@ export default function CodeLanding() {
 		} finally {
 			setIsProcessing(false);
 		}
-	}
+	};
 
 	useEffect(() => {
 		defineTheme('oceanic-next').then((_) => setTheme({ value: 'oceanic-next', label: 'Oceanic Next' }));
@@ -81,8 +84,18 @@ export default function CodeLanding() {
 					<section className="flex flex-shrink-0 w-[27%] flex-col right-container">
 						<OutputTerminal outputDetails={outputDetails}></OutputTerminal>
 						<div className="flex flex-col items-end">
-							<InputField></InputField>
+							<InputField customInput={customInput} setCustomInput={setCustomInput}></InputField>
 						</div>
+						<button
+							onClick={handleCodeCompile}
+							disabled={!code}
+							className={classnames(
+								'mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white text-black flex-shrink-0',
+								!code ? 'opacity-50' : '',
+							)}
+						>
+							{isProcessing ? 'Processing...' : 'Compile and Execute'}
+						</button>
 					</section>
 				</div>
 			</CodeLandingContainer>
