@@ -9,9 +9,10 @@ type UserData = {
 type UserContextType = {
 	userData: UserData | null;
 	setUserData: (data: UserData | null) => void;
+	logout: () => void;
 };
 
-const UserContext = createContext<UserContextType>({ userData: null, setUserData: () => {} });
+const UserContext = createContext<UserContextType>({ userData: null, setUserData: () => {}, logout: () => {} });
 export default UserContext;
 
 type UserProviderProps = {
@@ -21,5 +22,9 @@ type UserProviderProps = {
 export function UserProvider({ children }: UserProviderProps) {
 	const [userData, setUserData] = useLocalStorage('userData', null);
 
-	return <UserContext.Provider value={{ userData, setUserData }}>{children}</UserContext.Provider>;
+	const logout = () => {
+		setUserData(null);
+	};
+
+	return <UserContext.Provider value={{ userData, setUserData, logout }}>{children}</UserContext.Provider>;
 }
