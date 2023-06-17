@@ -11,6 +11,7 @@ import OutputTerminal from './OutputTerminal';
 import useSubmit from '@/hooks/api/useSubmit';
 import InputField from './InputField';
 import { classnames } from '@/utils/classNamesJoin';
+import OutputDetails from './OutputDetails';
 
 export default function CodeLanding() {
 	const [code, setCode] = useState('');
@@ -54,6 +55,7 @@ export default function CodeLanding() {
 			source_code: btoa(code),
 			stdin: btoa(customInput),
 		};
+		console.log(codeDatatoCompile);
 		try {
 			const compileResponse = await submitNewCode(codeDatatoCompile);
 			setOutputDetails(compileResponse);
@@ -84,6 +86,7 @@ export default function CodeLanding() {
 						<div className="flex flex-col items-end">
 							<InputField customInput={customInput} setCustomInput={setCustomInput}></InputField>
 						</div>
+						<OutputDetails outputDetails={outputDetails}></OutputDetails>
 						<button
 							onClick={handleCodeCompile}
 							disabled={!code}
