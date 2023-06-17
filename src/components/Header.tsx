@@ -39,7 +39,7 @@ export default function Header() {
 				{userData ? (
 					<>
 						<HeaderButton onClick={handlePostsClick}>Posts</HeaderButton>
-						<HeaderButton onClick={handleProblemsClick}>Problemas</HeaderButton>
+						<HeaderButton onClick={handleProblemsClick}>Code</HeaderButton>
 						<HeaderButton onClick={handleLogout}>Logout</HeaderButton>
 					</>
 				) : (
