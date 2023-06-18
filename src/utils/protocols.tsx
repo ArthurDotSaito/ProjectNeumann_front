@@ -26,3 +26,12 @@ export interface SubmitCodeData {
 	source_code: string;
 	stdin: string;
 }
+
+export interface Post {
+	id: number;
+	title: string;
+	content: string;
+	date: Date;
+	createdAt: Date;
+	updatedAt: Date;
+}

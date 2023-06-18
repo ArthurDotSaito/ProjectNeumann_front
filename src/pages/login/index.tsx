@@ -22,7 +22,7 @@ export default function Login() {
 			const userData = await signIn(email, password);
 			setUserData(userData);
 			toast('Login realizado com Sucesso!');
-			router.push('/dashboard');
+			router.push('/code');
 		} catch (error) {
 			toast('E-mail e/ou senha incorretos!');
 		}
