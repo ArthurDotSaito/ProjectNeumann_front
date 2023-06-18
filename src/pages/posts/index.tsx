@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import usePosts from '@/hooks/api/usePosts';
 import Header from '@/components/Header';
 import { Post } from '@/utils/protocols';
+import PostList from '@/components/Post/PostList';
 
 export default function Posts() {
 	const { postsData, postsLoading, postsError, postsFunction } = usePosts();
@@ -16,15 +17,7 @@ export default function Posts() {
 			<section className="mt-6 mx-auto max-w-2xl">
 				<h2 className="text-4xl font-bold dark:text-white/90">Posts</h2>
 				<ul className="w-full">
-					{postsData ? (
-						postsData.map((post: Post) => (
-							<li key={post.id}>
-								<h3>{post.title}</h3>
-							</li>
-						))
-					) : (
-						<li>Loading posts...</li>
-					)}
+					{postsData ? postsData.map((post: Post) => <PostList key={post.id} post={post}></PostList>) : <li>Loading posts...</li>}
 				</ul>
 			</section>
 		</div>
