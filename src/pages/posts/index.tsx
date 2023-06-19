@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import usePosts from '@/hooks/api/usePosts';
 import Header from '@/components/Header';
 import { Post } from '@/utils/protocols';
@@ -6,9 +6,15 @@ import PostList from '@/components/Post/PostList';
 
 export default function Posts() {
 	const { postsData, postsLoading, postsError, postsFunction } = usePosts();
+	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		postsFunction();
+		const fetchData = async () => {
+			const result = await postsFunction();
+			setPosts(result);
+		};
+
+		fetchData();
 	}, []);
 
 	return (
