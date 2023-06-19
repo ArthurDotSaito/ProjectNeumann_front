@@ -19,7 +19,7 @@ export default function Header() {
 	};
 
 	const handleProblemsClick = () => {
-		router.push('/problems');
+		router.push('/code');
 	};
 
 	const handleRegisterClick = () => {
