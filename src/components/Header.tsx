@@ -33,9 +33,9 @@ export default function Header() {
 	return (
 		<HeaderContainer className="flex flex-col xs:flex-row">
 			<Link href="/" passHref className="flex space-x-2">
-				<h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight">ProjectNeumann</h1>
+				<h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight self-center">ProjectNeumann</h1>
 			</Link>
-			<HeaderButtonContainer className="gap-5">
+			<HeaderButtonContainer>
 				{userData ? (
 					<>
 						<HeaderButton onClick={handlePostsClick}>Posts</HeaderButton>
@@ -53,54 +53,48 @@ export default function Header() {
 	);
 }
 
-const HeaderContainer = w.header(
-	`
-        flex 
-        flex-col 
-        xs:flex-row 
-        justify-between 
-        items-center 
-        w-full 
-        mt-3 
-        border-b 
-        pb-7 
-        sm:px-4 
-        px-2 
-        border-gray-500 
-        gap-2
-    `,
-);
+const HeaderContainer = w.header(`
+  flex 
+  flex-col 
+  xs:flex-row 
+  justify-between
+  items-center 
+  w-full 
+  mt-3 
+  border-b 
+  pb-7 
+  sm:px-4 
+  px-2 
+  border-gray-500 
+  gap-2
+`);
 
-const HeaderButtonContainer = w.section(
-	`
-        flex
-        flex-col xs:flex-row
-        max-w-fit 
-        items-center 
-        justify-center 
-    `,
-);
+const HeaderButtonContainer = w.section(`
+  flex
+  flex-col xs:flex-row
+  max-w-fit 
+  items-center 
+  justify-center 
+`);
 
-const HeaderButton = w.button(
-	`
-        flex 
-        max-w-fit 
-        items-center 
-        justify-center 
-        space-x-2 
-        rounded-full 
-        border 
-        rounded
-        border-blue-600 
-        text-white 
-        px-14
-        py-2
-        text-lg 
-        shadow-md 
-        hover:bg-blue-500
-        bg-blue-600
-        font-medium transition
-        sm: text-base
-        md: text-lg
-    `,
-);
+const HeaderButton = w.button(`
+  flex 
+  max-w-fit 
+  items-center 
+  justify-center 
+  space-x-2 
+  px-10 
+  py-2
+  appearance-none 
+  bg-transparent 
+  border-none 
+  rounded-border 
+  rounded-md
+  text-white 
+  cursor-pointer 
+  h-34px 
+  transition-background duration-ease-in-out 
+  hover:bg-gray-800
+  sm:text-xl
+  md:text-3xl
+`);
