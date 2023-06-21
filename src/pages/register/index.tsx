@@ -7,6 +7,7 @@ import { Row, Label } from '@/components/Form';
 import useRegistration from '@/hooks/api/useRegistration';
 import Header from '@/components/Header';
 import { RegisterPageContainer } from '@/styles/pages_styles/registerPageStyle';
+import Footer from '@/components/Footer';
 
 export default function Register() {
 	const [email, setEmail] = useState('');
@@ -85,6 +86,7 @@ export default function Register() {
 			<Row>
 				<Link href="/login">Already registered? Click here</Link>
 			</Row>
+			<Footer></Footer>
 		</RegisterPageContainer>
 	);
 }

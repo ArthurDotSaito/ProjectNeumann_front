@@ -8,6 +8,7 @@ import { Row, Label } from '@/components/Form';
 import useLogin from '@/hooks/api/useLogin';
 import UserContext from '@/context/UserContext';
 import { LoginPageContainer } from '@/styles/pages_styles/loginPageStyle';
+import Footer from '@/components/Footer';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
@@ -66,6 +67,7 @@ export default function Login() {
 			<Row>
 				<Link href="/register">Don't have an account? Click here</Link>
 			</Row>
+			<Footer></Footer>
 		</LoginPageContainer>
 	);
 }
