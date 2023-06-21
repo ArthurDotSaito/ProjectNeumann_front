@@ -83,7 +83,7 @@ const HeaderButton = w.button(`
   items-center 
   justify-center 
   space-x-2 
-  px-10 
+  px-6
   py-2
   appearance-none 
   bg-transparent 

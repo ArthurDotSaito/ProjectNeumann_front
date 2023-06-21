@@ -77,7 +77,7 @@ export default function CodeLanding() {
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
 					<ThemeDropdown theme={theme} changeTheme={changeTheme}></ThemeDropdown>
 				</section>
-				<div className="flex flex-row">
+				<div className="flex flex-row ">
 					<section className="flex flex-row space-x-4 w-[70%] items-start px-4 py-4">
 						<CodeEditor code={code} theme={theme.value} language={language?.value} onChange={onChange}></CodeEditor>
 					</section>

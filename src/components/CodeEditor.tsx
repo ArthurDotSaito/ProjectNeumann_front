@@ -15,7 +15,7 @@ export default function CodeEditor({ code, theme, language, onChange }: CodeEdit
 	return (
 		<CodeEditorContainer>
 			<Editor
-				height="85vh"
+				height="70vh"
 				width={`100%`}
 				language={language || 'javascript'}
 				theme={theme}
