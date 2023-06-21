@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { w } from 'windstitch';
 import { toast } from 'react-toastify';
 
 import { Row, Label } from '@/components/Form';
 import useRegistration from '@/hooks/api/useRegistration';
 import Header from '@/components/Header';
-import { RegisterPageContainer } from '@/styles/pages_styles/registerPageStyle';
 import Footer from '@/components/Footer';
 
 export default function Register() {
@@ -90,3 +90,5 @@ export default function Register() {
 		</RegisterPageContainer>
 	);
 }
+
+const RegisterPageContainer = w.main(`flex  flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2'`);

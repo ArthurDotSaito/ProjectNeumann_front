@@ -1,4 +1,4 @@
-import { TerminalWindow, Text } from '@/styles/components_styles/outputTerminalStyle';
+import { w } from 'windstitch';
 
 export default function OutputTerminal({ outputDetails }: any) {
 	const getOutput = () => {
@@ -25,3 +25,7 @@ export default function OutputTerminal({ outputDetails }: any) {
 		</>
 	);
 }
+
+const Text = w.h1(`font-bold text-xl bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700 mb-2`);
+
+const TerminalWindow = w.section('TerminalWindow');

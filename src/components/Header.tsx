@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
+import { w } from 'windstitch';
 
-import { HeaderButton, HeaderButtonContainer, HeaderContainer } from '@/styles/components_styles/headerStyle';
 import UserContext from '@/context/UserContext';
 
 export default function Header() {
@@ -52,3 +52,55 @@ export default function Header() {
 		</HeaderContainer>
 	);
 }
+
+const HeaderContainer = w.header(
+	`
+        flex 
+        flex-col 
+        xs:flex-row 
+        justify-between 
+        items-center 
+        w-full 
+        mt-3 
+        border-b 
+        pb-7 
+        sm:px-4 
+        px-2 
+        border-gray-500 
+        gap-2
+    `,
+);
+
+const HeaderButtonContainer = w.section(
+	`
+        flex
+        flex-col xs:flex-row
+        max-w-fit 
+        items-center 
+        justify-center 
+    `,
+);
+
+const HeaderButton = w.button(
+	`
+        flex 
+        max-w-fit 
+        items-center 
+        justify-center 
+        space-x-2 
+        rounded-full 
+        border 
+        rounded
+        border-blue-600 
+        text-white 
+        px-14
+        py-2
+        text-lg 
+        shadow-md 
+        hover:bg-blue-500
+        bg-blue-600
+        font-medium transition
+        sm: text-base
+        md: text-lg
+    `,
+);

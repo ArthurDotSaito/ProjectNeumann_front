@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import CodeEditor from '../CodeEditor';
+import { w } from 'windstitch';
 
+import CodeEditor from '../CodeEditor';
 import { languageOptions } from '@/constants/languageOptions';
-import { CodeLandingContainer } from '@/styles/components_styles/codeLandingStyle';
 import LanguagesDropdown from './LanguagesDropdown';
 import ThemeDropdown from './ThemeDropdown';
 import defineTheme from '@/libraries/codeEditorThemes';
@@ -103,3 +103,7 @@ export default function CodeLanding() {
 		</>
 	);
 }
+
+const CodeLandingContainer = w.main(`
+    h-4 w-full 
+`);

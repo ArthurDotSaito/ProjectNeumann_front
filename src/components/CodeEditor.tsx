@@ -1,8 +1,8 @@
 import Editor from '@monaco-editor/react';
 import { useState } from 'react';
+import { w } from 'windstitch';
 
 import { CodeEditorProps } from '@/utils/protocols';
-import { CodeEditorContainer } from '@/styles/components_styles/codeEditorStyle';
 
 export default function CodeEditor({ code, theme, language, onChange }: CodeEditorProps) {
 	const [value, setValue] = useState(code || '');
@@ -26,3 +26,5 @@ export default function CodeEditor({ code, theme, language, onChange }: CodeEdit
 		</CodeEditorContainer>
 	);
 }
+
+const CodeEditorContainer = w.main(`overlay rounded-md overflow-hidden w-full h-full shadow-4xl`);

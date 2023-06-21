@@ -12,6 +12,7 @@ export default function Posts() {
 	useEffect(() => {
 		const fetchData = async () => {
 			const result = await postsFunction();
+			console.log(result[1].content);
 			setPosts(result);
 		};
 

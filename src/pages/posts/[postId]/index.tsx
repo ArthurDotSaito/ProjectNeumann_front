@@ -68,13 +68,17 @@ export default function Post() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const result = await postByIdFunction(postId);
-			console.log(result);
-			setPostDetails(result);
+			try {
+				const result = await postByIdFunction(postId);
+				console.log(result);
+				setPostDetails(result);
+			} catch (error) {
+				console.log(error);
+			}
 		};
 
 		fetchData();
-	}, []);
+	}, [postId]);
 
 	const pubDate = getFormattedDate(postDetails.date);
 

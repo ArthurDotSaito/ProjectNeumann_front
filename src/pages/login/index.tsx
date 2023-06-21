@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { w } from 'windstitch';
 import { toast, ToastContainer } from 'react-toastify';
 
 import Header from '@/components/Header';
 import { Row, Label } from '@/components/Form';
 import useLogin from '@/hooks/api/useLogin';
 import UserContext from '@/context/UserContext';
-import { LoginPageContainer } from '@/styles/pages_styles/loginPageStyle';
 import Footer from '@/components/Footer';
 
 export default function Login() {
@@ -71,3 +71,5 @@ export default function Login() {
 		</LoginPageContainer>
 	);
 }
+
+const LoginPageContainer = w.main(`flex flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2`);

@@ -1,5 +1,5 @@
 import { monacoThemes } from '@/libraries/codeEditorThemes';
-import { LanguageSelectorCustomStyle } from '@/styles/components_styles/codeLandingStyle';
+import { LanguageSelectorCustomStyle } from '@/styles/languageSelectorCustom';
 import Select from 'react-select';
 
 export default function ThemeDropdown({ theme, changeTheme }: any) {
