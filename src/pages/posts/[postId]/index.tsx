@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Parser from 'html-react-parser';
 
 import { Post } from '@/utils/protocols';
 import getFormattedDate from '@/utils/getFormattedDate';
@@ -8,8 +9,7 @@ import getFormattedDate from '@/utils/getFormattedDate';
 import { getAllPosts } from '@/services/postsApi';
 import { getAccessToken } from '@/utils/getTokenLocalStorage'; */
 import usePostById from '@/hooks/api/usePostById';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Format from '@/layout/format';
 
 /* export async function getStaticProps(context: any) {
 	const { params } = context;
@@ -83,19 +83,17 @@ export default function Post() {
 	const pubDate = getFormattedDate(postDetails.date);
 
 	return (
-		<>
+		<Format>
 			<main className="px-6 prose prose-xl prose-slate dark:prose-invert mx-auto flex flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
-				<Header></Header>
 				<h1 className="text-4xl my-2">{postDetails.title}</h1>
 				<p className="mt-0 my-5">{pubDate}</p>
-				<article>
-					<section dangerouslySetInnerHTML={{ __html: postDetails.content }} />
+				<article className="text-left">
+					<section className="list-disc list-inside">{Parser(postDetails.content)}</section>
 					<p className="my-9">
 						<Link href="/posts">← Back to home</Link>
 					</p>
 				</article>
 			</main>
-			<Footer></Footer>
-		</>
+		</Format>
 	);
 }
