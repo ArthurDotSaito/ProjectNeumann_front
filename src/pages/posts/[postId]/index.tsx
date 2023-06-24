@@ -10,6 +10,7 @@ import { getAllPosts } from '@/services/postsApi';
 import { getAccessToken } from '@/utils/getTokenLocalStorage'; */
 import usePostById from '@/hooks/api/usePostById';
 import Format from '@/layout/format';
+import Comment from '@/components/Comment';
 
 /* export async function getStaticProps(context: any) {
 	const { params } = context;
@@ -84,7 +85,7 @@ export default function Post() {
 
 	return (
 		<Format>
-			<main className="px-6 prose prose-xl prose-slate dark:prose-invert mx-auto flex flex-col py-2 min-h-screen bg-[#17181C] text-white z-negative-2">
+			<main className="px-6 prose prose-xl prose-slate dark:prose-invert mx-auto flex flex-col py-2 bg-[#17181C] text-white z-negative-2">
 				<h1 className="text-4xl my-2">{postDetails.title}</h1>
 				<p className="mt-0 my-5">{pubDate}</p>
 				<article className="text-left">
@@ -94,6 +95,7 @@ export default function Post() {
 					</p>
 				</article>
 			</main>
+			<Comment></Comment>
 		</Format>
 	);
 }

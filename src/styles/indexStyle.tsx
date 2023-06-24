@@ -9,7 +9,6 @@ export const BlueSprayBackground = w.main(
     flex-col 
     justify-center 
     text-center 
-    sm:mt-20 mt-20 
     background-gradient
     `,
 );
