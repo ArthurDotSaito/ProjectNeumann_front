@@ -35,3 +35,11 @@ export interface Post {
 	createdAt: string;
 	updatedAt: string;
 }
+
+export interface CommentFormProps {
+	postId: string | string[];
+	postCommentData: any;
+	postCommentLoading: boolean;
+	postCommentError: any;
+	postCommentFunction: (postId: string | string[], content: string) => Promise<void>;
+}

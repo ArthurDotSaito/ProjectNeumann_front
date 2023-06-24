@@ -95,7 +95,7 @@ export default function Post() {
 					</p>
 				</article>
 			</main>
-			<Comment></Comment>
+			<Comment postId={postId}></Comment>
 		</Format>
 	);
 }
