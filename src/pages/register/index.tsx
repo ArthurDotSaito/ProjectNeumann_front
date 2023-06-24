@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 
 export default function Register() {
 	const [email, setEmail] = useState('');
+	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const router = useRouter();
@@ -23,7 +24,7 @@ export default function Register() {
 			toast('As senhas devem ser iguais!');
 		} else {
 			try {
-				await signUp(email, password);
+				await signUp(email, username, password);
 				toast('Inscrito com sucesso! Por favor, faça login.');
 				router.push('/login');
 			} catch (error) {
@@ -48,6 +49,18 @@ export default function Register() {
 							className="w-full px-2 py-1 bg-gray-800 text-white border border-gray-600 rounded"
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</div>
+					<div className="mb-4">
+						<label htmlFor="username" className="block mb-1">
+							Username
+						</label>
+						<input
+							id="username"
+							type="text"
+							className="w-full px-2 py-1 bg-gray-800 text-white border border-gray-600 rounded"
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
 						/>
 					</div>
 					<div className="mb-4">

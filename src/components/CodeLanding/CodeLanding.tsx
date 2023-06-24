@@ -73,7 +73,7 @@ export default function CodeLanding() {
 	return (
 		<>
 			<CodeLandingContainer>
-				<section className="flex flex-col xs:flex-row">
+				<section className="flex flex-col xs:flex-row items-center ">
 					<LanguagesDropdown onSelectChange={onSelectChange}></LanguagesDropdown>
 					<ThemeDropdown theme={theme} changeTheme={changeTheme}></ThemeDropdown>
 				</section>

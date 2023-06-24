@@ -5,5 +5,5 @@ export default function Footer() {
 }
 
 const FooterContainer = w.main(`
-    fixed bottom-0 w-full h-10 bg-gray-400 flex items-center justify-center
+    fixed bottom-0 w-full h-10 bg-gray-400 flex items-center justify-center 
 `);
