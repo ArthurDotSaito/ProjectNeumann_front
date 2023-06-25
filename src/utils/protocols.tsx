@@ -43,3 +43,11 @@ export interface CommentFormProps {
 	postCommentError: any;
 	postCommentFunction: (postId: string | string[], content: string) => Promise<void>;
 }
+
+export interface CommentListProps {
+	postId: string | string[];
+	getCommentData: any;
+	getCommentLoading: boolean;
+	getCommentError: any;
+	getCommentFunction: (postId: string | string[]) => Promise<any>;
+}
