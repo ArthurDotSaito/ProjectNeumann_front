@@ -2,7 +2,7 @@ import { getAllComments } from '@/services/getAllCommentsApi';
 import useAsync from '../useAsync';
 import useToken from '../useToken';
 
-export default function usePostComment() {
+export default function useGetComment() {
 	const token = useToken();
 
 	const {
